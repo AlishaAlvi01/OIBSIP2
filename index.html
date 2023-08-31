@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Converter Website</title>
+    <link rel="icon" type="image/icon" href="image/favicon-32x32.png">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <div class="header">
+        <h1>Easy Converter</h1>
+    </div>
+    <div class="centered-box">
+        <h2>Temperature Converter</h2>
+        <div id="container">
+            <label class="label" for="conversionType">Select Conversion:</label>
+        <select id="conversionType">
+            <option value="fahrenheitToCelsius">Fahrenheit to Celsius</option>
+            <option value="celsiusToFahrenheit">Celsius to Fahrenheit</option><br>
+        </select>
+        <br>
+        <br><input type="number" id="temperatureInput" placeholder="Enter temperature" />
+        <button class="styled-button" onclick="convertTemperature()">Convert</button>
+        <div id="result-box">
+        <p id="result"></p>
+    </div>
+    </div>
+    <script>
+        function convertTemperature() {
+    const conversionType = document.getElementById("conversionType").value;
+    const temperatureInput = parseFloat(document.getElementById("temperatureInput").value);
+    let result;
+
+    if (conversionType === "fahrenheitToCelsius") {
+        result = ((temperatureInput - 32) * 5/9).toFixed(2) + "°C";
+    } else {
+        result = ((temperatureInput * 9/5) + 32).toFixed(2) + "°F";
+    }
+
+    const resultBox = document.getElementById("result-box");
+    const resultElement = document.getElementById("result");
+    resultElement.textContent = `Result: ${result}`;
+    resultBox.style.display = "block"; // Show the result box
+
+    console.log("Function called");
+}
+
+    </script>
+</div>
+<footer>
+    <p>&copy; 2023 Easy Converter</p><br>
+    
+</footer>
+
+</body>
+</html>
